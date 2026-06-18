@@ -1,0 +1,119 @@
+
+
+{
+  "techStack": {
+    "title": "Technologies We Work With",
+    "items": [
+      {
+        "name": "Angular",
+        "icon": "fa-brands fa-angular"
+      },
+      {
+        "name": "React",
+        "icon": "fa-brands fa-react"
+      },
+      {
+        "name": "Node.js",
+        "icon": "fa-brands fa-node-js"
+      },
+      {
+        "name": "NestJS",
+        "icon": "fa-solid fa-server"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "fa-solid fa-database"
+      },
+      {
+        "name": "PostgreSQL",
+        "icon": "fa-solid fa-database"
+      },
+      {
+        "name": "AWS",
+        "icon": "fa-brands fa-aws"
+      },
+      {
+        "name": "Docker",
+        "icon": "fa-brands fa-docker"
+      },
+      {
+        "name": "Python",
+        "icon": "fa-brands fa-python"
+      },
+      {
+        "name": "GSAP",
+        "icon": "fa-solid fa-bolt"
+      }
+    ]
+  },
+  
+ "services": {
+    "tag": "Our Services",
+    "title": "Digital Solutions Built",
+    "highlight": "For Growth",
+    "description": "From startup launches to enterprise platforms, we craft scalable digital experiences that deliver measurable results.",
+
+    "items": [
+      {
+        "id": "web-development",
+        "number": "01",
+        "icon": "fa-solid fa-laptop-code",
+        "title": "Website Development",
+        "description": "High-performance business websites designed to convert visitors into customers.",
+        "badge": "Popular",
+        "gradient": "blue",
+        "cta": "Learn More"
+      },
+      {
+        "id": "web-applications",
+        "number": "02",
+        "icon": "fa-solid fa-layer-group",
+        "title": "Web Applications",
+        "description": "Scalable SaaS products, dashboards, and enterprise-grade platforms.",
+        "badge": "Enterprise",
+        "gradient": "purple",
+        "cta": "Explore"
+      },
+      {
+        "id": "mobile-apps",
+        "number": "03",
+        "icon": "fa-solid fa-mobile-screen",
+        "title": "Mobile Apps",
+        "description": "Android and iOS experiences built for speed and usability.",
+        "badge": "Native",
+        "gradient": "cyan",
+        "cta": "Discover"
+      },
+      {
+        "id": "ui-ux-design",
+        "number": "04",
+        "icon": "fa-solid fa-pen-ruler",
+        "title": "UI / UX Design",
+        "description": "Beautiful interfaces crafted around user behavior and conversion goals.",
+        "badge": "Creative",
+        "gradient": "pink",
+        "cta": "View Process"
+      },
+      {
+        "id": "branding",
+        "number": "05",
+        "icon": "fa-solid fa-bullhorn",
+        "title": "Branding",
+        "description": "Visual identities that establish trust and create lasting impressions.",
+        "badge": "Identity",
+        "gradient": "orange",
+        "cta": "See Work"
+      },
+      {
+        "id": "seo-growth",
+        "number": "06",
+        "icon": "fa-solid fa-chart-line",
+        "title": "SEO & Growth",
+        "description": "Data-driven strategies focused on visibility, traffic, and revenue.",
+        "badge": "Growth",
+        "gradient": "green",
+        "cta": "Get Started"
+      }
+    ]
+  }
+}
