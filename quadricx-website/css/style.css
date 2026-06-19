@@ -52,6 +52,15 @@
     --btn-text: #FFFFFF;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scrollbar-width: none;
+}
+
 * {
     margin: 0;
     padding: 0;
