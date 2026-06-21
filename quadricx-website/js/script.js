@@ -10,8 +10,6 @@ window.addEventListener("load", () => {
 
     }, 3500);
 });
-
-
 function initApp() {
 
     // THEME TOGGLE
@@ -196,7 +194,7 @@ if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
         yoyo: true,
         ease: "sine.inOut"
     });
-}
+    } 
 }
 
 async function loadSiteData() {
