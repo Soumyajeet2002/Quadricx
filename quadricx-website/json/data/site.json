@@ -6,43 +6,43 @@
     "items": [
       {
         "name": "Angular",
-        "icon": "fa-brands fa-angular"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg"
       },
       {
         "name": "React",
-        "icon": "fa-brands fa-react"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
       },
       {
         "name": "Node.js",
-        "icon": "fa-brands fa-node-js"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
       },
       {
         "name": "NestJS",
-        "icon": "fa-solid fa-server"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg"
       },
       {
         "name": "MongoDB",
-        "icon": "fa-solid fa-database"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
       },
       {
         "name": "PostgreSQL",
-        "icon": "fa-solid fa-database"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
       },
       {
         "name": "AWS",
-        "icon": "fa-brands fa-aws"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
       },
       {
         "name": "Docker",
-        "icon": "fa-brands fa-docker"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
       },
       {
         "name": "Python",
-        "icon": "fa-brands fa-python"
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
       },
       {
         "name": "GSAP",
-        "icon": "fa-solid fa-bolt"
+        "icon": "https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg"
       }
     ]
   },

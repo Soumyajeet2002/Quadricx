@@ -13,9 +13,9 @@ window.addEventListener("load", () => {
 function initApp() {
 
     // THEME TOGGLE
-    const themeToggle = document.querySelector(".theme-toggle");
+    const themeToggles = document.querySelectorAll(".theme-toggle");
 
-    if (themeToggle) {
+    if (themeToggles.length > 0) {
         const savedTheme = localStorage.getItem("theme") || "light";
 
         document.documentElement.setAttribute(
@@ -23,24 +23,26 @@ function initApp() {
             savedTheme
         );
 
-        themeToggle.addEventListener("click", () => {
-            const currentTheme =
-                document.documentElement.getAttribute("data-theme");
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener("click", () => {
+                const currentTheme =
+                    document.documentElement.getAttribute("data-theme");
 
-            const newTheme =
-                currentTheme === "dark"
-                    ? "light"
-                    : "dark";
+                const newTheme =
+                    currentTheme === "dark"
+                        ? "light"
+                        : "dark";
 
-            document.documentElement.setAttribute(
-                "data-theme",
-                newTheme
-            );
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    newTheme
+                );
 
-            localStorage.setItem(
-                "theme",
-                newTheme
-            );
+                localStorage.setItem(
+                    "theme",
+                    newTheme
+                );
+            });
         });
     }
 
@@ -80,6 +82,8 @@ function initApp() {
             }
         });
     }
+
+
 
     // Back To Top
     const backToTopBtn = document.getElementById("backToTop");
@@ -243,9 +247,14 @@ function renderTechStack(data) {
 
     data.techStack.items.forEach(item => {
 
+        const isImage = item.icon.startsWith("http") || item.icon.startsWith("/") || item.icon.includes(".svg");
+        const iconHtml = isImage 
+            ? `<img src="${item.icon}" alt="${item.name}" style="width: 24px; height: 24px; object-fit: contain;">` 
+            : `<i class="${item.icon}"></i>`;
+
         markup += `
-            <span>
-                <i class="${item.icon}"></i>
+            <span style="display: flex; align-items: center; gap: 8px;">
+                ${iconHtml}
                 ${item.name}
             </span>
         `;
@@ -294,13 +303,9 @@ function renderServices(data) {
 
             <div class="service-top">
 
-                <span class="service-badge">
-                    ${service.badge || "Service"}
-                </span>
+               
 
-                <span class="service-number">
-                    ${service.number}
-                </span>
+                
 
             </div>
 
@@ -411,3 +416,144 @@ function renderServices(data) {
 
 }
 
+// Floating Socials Toggle
+const socialToggle = document.getElementById('socialToggle');
+const floatingSocials = document.getElementById('floatingSocials');
+
+if (socialToggle && floatingSocials) {
+    socialToggle.addEventListener('click', () => {
+        floatingSocials.classList.toggle('tucked');
+    });
+}
+
+/* =========================
+   CONTACT FORM INTEGRATION
+========================= */
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Get inputs
+        const nameInput = document.getElementById('nameInput');
+        const emailInput = document.getElementById('emailInput');
+        const phoneInput = document.getElementById('phoneInput');
+        const messageInput = document.getElementById('messageInput');
+
+        // Get error elements
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const phoneError = document.getElementById('phoneError');
+        const messageError = document.getElementById('messageError');
+
+        // Reset errors
+        nameError.style.display = 'none';
+        emailError.style.display = 'none';
+        phoneError.style.display = 'none';
+        messageError.style.display = 'none';
+        
+        // Remove invalid classes
+        nameInput.classList.remove('is-invalid');
+        emailInput.classList.remove('is-invalid');
+        phoneInput.classList.remove('is-invalid');
+        messageInput.classList.remove('is-invalid');
+
+        let isValid = true;
+
+        if (!nameInput.value.trim()) {
+            nameError.style.display = 'block';
+            nameInput.classList.add('is-invalid');
+            isValid = false;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+            emailError.style.display = 'block';
+            emailInput.classList.add('is-invalid');
+            isValid = false;
+        }
+
+        if (!phoneInput.value.trim()) {
+            phoneError.style.display = 'block';
+            phoneInput.classList.add('is-invalid');
+            isValid = false;
+        }
+
+        if (!messageInput.value.trim()) {
+            messageError.style.display = 'block';
+            messageInput.classList.add('is-invalid');
+            isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // UI State: Loading
+        const submitBtn = document.getElementById('contactSubmitBtn');
+        const btnText = document.getElementById('contactBtnText');
+        const btnIcon = document.getElementById('contactBtnIcon');
+        const spinner = document.getElementById('contactSpinner');
+
+        btnText.textContent = 'Sending...';
+        if (btnIcon) btnIcon.classList.add('d-none');
+        if (spinner) spinner.classList.remove('d-none');
+        submitBtn.disabled = true;
+
+        try {
+            const payload = {
+                name: nameInput.value.trim(),
+                email: emailInput.value.trim(),
+                phone: phoneInput.value.trim(),
+                message: messageInput.value.trim(),
+                subject: ""
+            };
+
+            const url = `https://quadricx-web-be.onrender.com/send-mail`;
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok || response.status === 200 || response.type === 'opaque') {
+                const contactModalEl = document.getElementById('contactModal');
+                const contactModal = bootstrap.Modal.getInstance(contactModalEl) || new bootstrap.Modal(contactModalEl);
+                contactModal.hide();
+
+                contactForm.reset();
+
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+            } else {
+                console.error('API Error:', response.statusText);
+                const contactModalEl = document.getElementById('contactModal');
+                if (contactModalEl) {
+                    const contactModal = bootstrap.Modal.getInstance(contactModalEl) || new bootstrap.Modal(contactModalEl);
+                    contactModal.hide();
+                }
+                const failedModal = new bootstrap.Modal(document.getElementById('failedModal'));
+                failedModal.show();
+            }
+
+        } catch (error) {
+            console.error('Request failed:', error);
+            const contactModalEl = document.getElementById('contactModal');
+            if (contactModalEl) {
+                const contactModal = bootstrap.Modal.getInstance(contactModalEl) || new bootstrap.Modal(contactModalEl);
+                contactModal.hide();
+            }
+            const failedModal = new bootstrap.Modal(document.getElementById('failedModal'));
+            failedModal.show();
+        } finally {
+            // Restore UI
+            btnText.textContent = 'Send Message';
+            if (btnIcon) btnIcon.classList.remove('d-none');
+            if (spinner) spinner.classList.add('d-none');
+            submitBtn.disabled = false;
+        }
+    });
+}
