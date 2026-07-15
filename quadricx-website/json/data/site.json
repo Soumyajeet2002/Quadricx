@@ -48,7 +48,7 @@
   },
   
  "services": {
-    "tag": "Our Services",
+    "tag": "OUR SERVICES",
     "title": "Digital Solutions Built",
     "highlight": "For Growth",
     "description": "From startup launches to enterprise platforms, we craft scalable digital experiences that deliver measurable results.",
@@ -59,7 +59,7 @@
         "number": "01",
         "icon": "fa-solid fa-laptop-code",
         "title": "Website Development",
-        "description": "High-performance business websites designed to convert visitors into customers.",
+        "description": "High-performance business websites tailored for optimal speed and SEO, ensuring maximum visibility and designed with modern UX principles to effectively convert your visitors into loyal customers.",
         "badge": "Popular",
         "gradient": "blue",
         "cta": "Learn More"
@@ -69,7 +69,7 @@
         "number": "02",
         "icon": "fa-solid fa-layer-group",
         "title": "Web Applications",
-        "description": "Scalable SaaS products, dashboards, and enterprise-grade platforms.",
+        "description": "Robust and scalable SaaS products, complex internal dashboards, and secure enterprise-grade web platforms engineered with cutting-edge tech stacks to streamline your core business operations.",
         "badge": "Enterprise",
         "gradient": "purple",
         "cta": "Explore"
@@ -79,7 +79,7 @@
         "number": "03",
         "icon": "fa-solid fa-mobile-screen",
         "title": "Mobile Apps",
-        "description": "Android and iOS experiences built for speed and usability.",
+        "description": "Native and cross-platform Android and iOS applications built for lightning-fast performance, intuitive usability, and seamless user experiences that keep your audience engaged on the go.",
         "badge": "Native",
         "gradient": "cyan",
         "cta": "Discover"
@@ -89,7 +89,7 @@
         "number": "04",
         "icon": "fa-solid fa-pen-ruler",
         "title": "UI / UX Design",
-        "description": "Beautiful interfaces crafted around user behavior and conversion goals.",
+        "description": "Stunning, user-centric interfaces meticulously crafted around deep behavioral research, brand identity, and targeted conversion goals to create highly engaging and impactful digital experiences.",
         "badge": "Creative",
         "gradient": "pink",
         "cta": "View Process"
@@ -99,7 +99,7 @@
         "number": "05",
         "icon": "fa-solid fa-bullhorn",
         "title": "Branding",
-        "description": "Visual identities that establish trust and create lasting impressions.",
+        "description": "Comprehensive visual identities and brand guidelines that authentically reflect your core values, establish unwavering trust, and create memorable, lasting impressions in a competitive market.",
         "badge": "Identity",
         "gradient": "orange",
         "cta": "See Work"
@@ -109,7 +109,7 @@
         "number": "06",
         "icon": "fa-solid fa-chart-line",
         "title": "SEO & Growth",
-        "description": "Data-driven strategies focused on visibility, traffic, and revenue.",
+        "description": "Advanced data-driven marketing strategies and technical SEO optimizations strictly focused on boosting organic visibility, maximizing targeted traffic, and sustainably accelerating your revenue growth.",
         "badge": "Growth",
         "gradient": "green",
         "cta": "Get Started"
