@@ -10,6 +10,7 @@ window.addEventListener("load", () => {
 
     }, 3500);
 });
+
 function initApp() {
 
     // THEME TOGGLE
