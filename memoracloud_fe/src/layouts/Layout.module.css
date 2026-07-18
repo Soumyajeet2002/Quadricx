@@ -1,0 +1,28 @@
+.layout {
+  height: 100vh;
+}
+
+/* Right Side */
+
+.mainLayout {
+  height: 100vh;
+}
+
+/* Scrollable Content */
+
+.content {
+  margin-top: 70px;
+  margin-bottom: 60px;
+
+  height: calc(100vh - 130px);
+
+  overflow-y: auto;
+
+  background: #f5f7fb;
+
+  padding: 24px;
+}
+
+.page {
+  min-height: 100%;
+}

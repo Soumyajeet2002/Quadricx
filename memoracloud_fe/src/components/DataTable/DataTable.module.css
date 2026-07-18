@@ -1,0 +1,259 @@
+.wrapper {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.search {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.search :global(.ant-input) {
+  font-size: 14px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.totalRecords {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.recordCount {
+  color: #7c3aed;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.pageSizeControl {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.pageSizeSelect {
+  width: 80px;
+}
+
+.pageSizeSelect :global(.ant-select-selector) {
+  border-color: #d9d9d9 !important;
+}
+
+.table {
+  background: white;
+  border-radius: 4px;
+}
+
+/* Style the table header */
+.table :global(.ant-table-thead > tr > th) {
+  background: #7c3aed !important;
+  color: white !important;
+  font-weight: 600;
+  border-bottom: 1px solid #7c3aed !important;
+  padding: 16px 12px !important;
+}
+
+.table :global(.ant-table-thead > tr > th .ant-table-column-sorter) {
+  color: white;
+}
+
+.table :global(.ant-table-thead > tr > th .ant-table-column-sorter-up.active),
+.table
+  :global(.ant-table-thead > tr > th .ant-table-column-sorter-down.active) {
+  color: white;
+}
+
+/* Table cell styling */
+.table :global(.ant-table-tbody > tr > td) {
+  padding: 14px 12px !important;
+  font-size: 14px;
+}
+
+.table :global(.ant-table-tbody > tr) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.table :global(.ant-table-tbody > tr:hover > td) {
+  background: #fafafa;
+}
+
+.tableRow {
+  transition: background-color 0.2s ease;
+}
+
+/* Action buttons styling */
+.editBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editBtn:hover {
+  background: #6d28d9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(124, 58, 237, 0.2);
+}
+
+.editBtn:active {
+  transform: translateY(0);
+}
+
+.deleteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: white;
+  color: #ef4444;
+  border: 1.5px solid #ef4444;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background: #fee2e2;
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.15);
+}
+
+.deleteBtn:active {
+  background: #fecaca;
+}
+
+/* Pagination styling */
+.table :global(.ant-pagination) {
+  margin-top: 16px;
+}
+
+/* Custom table footer */
+.tableFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 12px 4px 4px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.recordsSummary {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.recordsHighlight {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+.footerPagination {
+  margin: 0 !important;
+}
+
+.table :global(.ant-pagination-item-active) {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+}
+
+.table :global(.ant-pagination-item-active a) {
+  color: white !important;
+}
+
+.table :global(.ant-pagination-item:hover a) {
+  color: #7c3aed !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .search {
+    min-width: auto;
+    max-width: 100%;
+  }
+
+  .headerRight {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .totalRecords,
+  .pageSizeControl {
+    justify-content: space-between;
+  }
+
+  .pageSizeSelect {
+    width: 100%;
+  }
+
+  .editBtn,
+  .deleteBtn {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+
+  .table :global(.ant-table-thead > tr > th) {
+    padding: 12px 8px !important;
+    font-size: 13px;
+  }
+
+  .table :global(.ant-table-tbody > tr > td) {
+    padding: 10px 8px !important;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerRight {
+    gap: 12px;
+  }
+
+  .recordCount {
+    font-size: 14px;
+  }
+
+  .editBtn,
+  .deleteBtn {
+    padding: 4px 10px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .editBtn :global(.anticon),
+  .deleteBtn :global(.anticon) {
+    font-size: 12px;
+  }
+}

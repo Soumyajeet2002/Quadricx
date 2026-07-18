@@ -1,0 +1,172 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pageTitle {
+  margin-bottom: 0 !important;
+  color: #0f172a !important; /* Slate 900 */
+}
+
+.newProjectBtn {
+  border-radius: 6px !important;
+  font-weight: 500;
+}
+
+/* Filters */
+.filtersBar {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchBar :global(.ant-input-affix-wrapper) {
+  border-radius: 8px;
+}
+
+.filterSelect :global(.ant-select-selector) {
+  border-radius: 8px !important;
+}
+
+/* List Rows */
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projectRow {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.projectRow:hover {
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.thumbnailWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 16px;
+  background-color: #f1f5f9;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnailPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+}
+
+.placeholderIcon {
+  font-size: 24px;
+}
+
+.projectInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.projectName {
+  margin-bottom: 0 !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.projectMeta {
+  display: flex;
+  align-items: center;
+  color: #64748b;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.metaDot {
+  margin: 0 8px;
+  color: #cbd5e1;
+}
+
+.projectActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.moreBtn {
+  color: #94a3b8 !important;
+}
+
+.moreBtn:hover {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+}
+
+/* Status Tags (Reused from dashboard concepts) */
+.statusTag {
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-weight: 500;
+  border: none;
+}
+
+.tagSlate {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.tagForest {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.tagClay {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.loadMoreBtn {
+  border-radius: 20px !important;
+  background-color: white !important;
+  font-weight: 500 !important;
+  padding: 0 32px !important;
+}
