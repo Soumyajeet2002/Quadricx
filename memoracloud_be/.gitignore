@@ -23,4 +23,9 @@ lerna-debug.log*
 .temp
 .tmp
 
+# Firebase service account
+memoracloud_be/src/config/firebase/*.json
+
 package-lock.json
+
+
