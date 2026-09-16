@@ -1,0 +1,192 @@
+/* =========================================================
+   NAVBAR BASE STYLES
+========================================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 0;
+  background: rgba(var(--bg-white-rgb), 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 7px 0;
+  border-bottom-color: var(--border-light);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo-image {
+  display: block;
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Desktop Links */
+.navbar-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm, 4px);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Ant Design CTA Button Customization */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.btn-primary-antd {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(var(--primary-rgb), 0.3);
+}
+
+.btn-primary-antd:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  transform: translateY(-1px);
+}
+
+.hamburger-btn {
+  display: none !important;
+  font-size: 18px !important;
+}
+
+/* =========================================================
+   FULL DRAWER STYLING (ANTD V5 COMPATIBLE)
+========================================================= */
+
+/* Force Ant Design Drawer to take 100% viewport width */
+.navbar-full-drawer.ant-drawer .ant-drawer-content-wrapper {
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+.navbar-full-drawer .ant-drawer-header {
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+.drawer-header-content {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-drawer-logo {
+  width: 60px;
+  height: auto;
+}
+
+.navbar-drawer-menu {
+  border-inline-end: none !important;
+  padding-top: 10px;
+}
+
+.navbar-drawer-menu .ant-menu-item {
+  height: 48px !important;
+  line-height: 48px !important;
+  font-size: 15px !important;
+  margin-block: 4px !important;
+  border-radius: 8px !important;
+}
+
+.navbar-drawer-menu .ant-menu-item-selected {
+  background-color: var(--primary-light) !important;
+  color: var(--primary) !important;
+}
+
+.navbar-drawer-menu .ant-menu-item-selected a {
+  color: var(--primary) !important;
+  font-weight: 600;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .navbar-logo-image {
+    width: 60px;
+  }
+
+  .navbar-links-desktop {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+  }
+
+  .btn-primary-antd {
+    padding: 4px 12px !important;
+    font-size: 12px !important;
+    height: 32px !important;
+  }
+}

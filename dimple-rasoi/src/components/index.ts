@@ -1,0 +1,11 @@
+export { AboutSection } from "./AboutSection";
+export { ClientsTestimonials } from "./ClientsTestimonials";
+export { ContactSection } from "./ContactSection";
+export { Footer } from "./Footer";
+export { FoundersSection } from "./FoundersSection";
+export { HeroSection } from "./HeroSection";
+export { Launcher } from "./Launcher";
+export { Navbar } from "./Navbar";
+export { SignatureDishes } from "./SignatureDishes";
+export { OurJourney } from "./OurJourney";
+export { OurServices } from "./OurServices";

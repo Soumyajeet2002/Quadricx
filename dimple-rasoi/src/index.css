@@ -1,0 +1,339 @@
+/* ============================
+   CSS CUSTOM PROPERTIES
+   ============================ */
+:root {
+  /* Primary Red */
+  --primary: #c8161d;
+  --primary-rgb: 200, 22, 29;
+  --primary-dark: #93060b;
+  --primary-dark-rgb: 147, 6, 11;
+  --primary-accent: #e63946;
+  --primary-light: #ffeaea;
+
+  /* Dark & Text */
+  --dark: #1a1a1a;
+  --text-main: #333333;
+  --text-light: #555555;
+  --text-muted: #999999;
+
+  /* Backgrounds */
+  --bg-white: #ffffff;
+  --bg-white-rgb: 255, 255, 255;
+  --bg-warm: #fdfbf9;
+
+  /* Accent Colors */
+  --gold: #f5a623;
+
+  /* Borders */
+  --border-light: #f0e6e6;
+
+  --font-signika: "Signika", sans-serif;
+  --font-playfair: "Signika", sans-serif;
+  --font-dancing: "Signika", sans-serif;
+  --font-poppins: "Signika", sans-serif;
+
+  --section-padding: 80px 0;
+  --container-max: 1200px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.15);
+  --shadow-primary: 0 4px 20px rgba(200, 22, 29, 0.3);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+}
+
+/* ============================
+   RESET & BASE
+   ============================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-signika);
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+button,
+input,
+textarea,
+select,
+.ant-typography,
+.ant-btn,
+.ant-input,
+.ant-select,
+.ant-card,
+.ant-menu,
+.ant-drawer {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-signika);
+}
+
+ul {
+  list-style: none;
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================
+   UTILITIES
+   ============================ */
+.global-loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+
+.global-loader-container.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.global-loader-scale-wrapper {
+  transform: scale(1.6);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Shared primary button — used by HeroSection, AboutSection, ContactSection */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-full);
+  font-family: var(--font-signika);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-primary);
+  cursor: pointer;
+  border: none;
+}
+
+/* Ant Design override */
+.btn-primary.ant-btn-primary {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: white !important;
+}
+
+/* Custom hover */
+.btn-primary.ant-btn-primary:hover {
+  background: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(var(--primary-rgb), 0.45);
+}
+
+/* Shared title card — used by ClientsTestimonials, OurJourney, FoundersSection,
+   SignatureDishes, AboutSection, ContactSection */
+.ant-typography.title-card {
+  font-family: var(--font-signika) !important;
+  letter-spacing: 3px;
+  margin: 0 !important;
+  color: var(--dark) !important;
+  font-size: 18px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  white-space: nowrap !important;
+}
+
+/* ============================
+   ANIMATIONS
+   ============================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes pulseBadge {
+  0%,
+  100% {
+    transform: rotate(-12deg) scale(1);
+  }
+  50% {
+    transform: rotate(-12deg) scale(1.06);
+  }
+}
+
+@keyframes spinText {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   TITLE DIVIDER — shared across ALL sections
+   (ClientsTestimonials, AboutSection, OurJourney,
+    FoundersSection, SignatureDishes, ContactSection)
+   ========================================================= */
+
+/* ============================
+   SHARED UTILITIES & OVERRIDES
+   ============================ */
+
+/* ============================
+   SHARED SECTION SUBTITLE
+   Used by: HeroSection, AboutSection, OurJourney,
+   FoundersSection, OurServices, ContactSection
+   ============================ */
+.section-subtitle {
+  font-family: var(--font-signika);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-light);
+  line-height: 1.7;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+  max-width: 560px;
+}
+
+/* 1. Remove 'white-space: nowrap !important' so typography doesn't collapse sibling lines */
+.ant-typography.title-card {
+  font-family: var(--font-signika) !important;
+  letter-spacing: 3px;
+  margin: 0 !important;
+  color: var(--dark) !important;
+  font-size: 18px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  white-space: normal !important; /* Changed from nowrap to normal */
+}
+
+/* 2. Explicitly force line height, display, and background render */
+.clients-title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  min-width: 140px; /* Prevent collapse inside flex layouts */
+  height: 24px;
+  margin-top: 8px;
+}
+
+.clients-divider-line {
+  flex: 1 1 auto;
+  display: block; /* Ensure it renders as a block element */
+  height: 2px !important;
+  min-height: 2px !important;
+  background-color: var(--primary) !important; /* Force render primary red */
+  border-radius: 2px;
+}
+
+.clients-divider-logo {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+}

@@ -1,0 +1,573 @@
+/* =========================================================
+   HERO SECTION CONTAINER - FULL SCREEN VIEWPORT
+   ========================================================= */
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 650px; /* Ensures items don't collide on super short screens */
+  background: var(--bg-warm);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 80px; /* Space for fixed navbar */
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+
+/* SOFT RADIAL GLOW IN BACKGROUND */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 65% 50%,
+    rgba(255, 228, 228, 0.45) 0%,
+    rgba(253, 251, 249, 0) 70%
+  );
+  pointer-events: none;
+}
+
+.hero-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   LEFT CONTENT STYLING
+   ========================================================= */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero-script {
+  font-family: var(--font-signika);
+  font-size: clamp(34px, 3.5vw, 44px);
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* UPDATED ENHANCED TITLE STYLING */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 6px 0 16px 0;
+  letter-spacing: -0.3px;
+}
+
+.title-welcome {
+  font-family: var(--font-signika);
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.title-brand {
+  font-family: var(--font-signika);
+  font-size: clamp(34px, 3.8vw, 48px);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.15;
+  position: relative;
+  display: inline-block;
+}
+
+.title-heart {
+  color: var(--primary);
+  font-weight: 400;
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.9em;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.title-brand:hover .title-heart {
+  transform: scale(1.2);
+}
+
+.title-line {
+  width: 55px;
+  height: 4px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.hero-desc {
+  font-family: var(--font-signika);
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 440px;
+  font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* =========================================================
+   CENTER IMAGE WRAPPER
+   ========================================================= */
+.hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.hero-food-img {
+  width: 100%;
+  max-width: 580px;
+  max-height: 52vh;
+  object-fit: contain;
+}
+
+/* =========================================================
+   FLOATING SOCIAL DRAWER
+   ========================================================= */
+.social-floating {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+  transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.social-floating:not(.open) {
+  transform: translateX(calc(100% - 38px)) translateY(-50%);
+}
+
+.hero-social-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 7px;
+  margin-right: 8px;
+  background: rgba(var(--bg-white-rgb), 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-light);
+  border-radius: 22px;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.08),
+    0 5px 18px rgba(var(--primary-rgb), 0.05);
+}
+
+.social-toggle {
+  flex-shrink: 0;
+  width: 38px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--border-light);
+  border-right: none;
+  border-radius: 16px 0 0 16px;
+  background: rgba(var(--bg-white-rgb), 0.94);
+  color: var(--primary);
+  cursor: pointer;
+  box-shadow: -5px 8px 22px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.social-toggle svg {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.social-floating:not(.open) .social-toggle svg {
+  transform: rotate(0deg);
+}
+
+.social-floating.open .social-toggle svg {
+  transform: rotate(180deg);
+}
+
+.social-toggle:hover {
+  background: var(--primary);
+  color: var(--bg-white);
+  box-shadow: -8px 10px 26px rgba(var(--primary-rgb), 0.2);
+}
+
+.social-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background: rgba(var(--bg-white-rgb), 0.95);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.social-icon-btn:hover {
+  background: var(--primary);
+  color: var(--bg-white);
+  border-color: var(--primary);
+  transform: translateX(-5px) scale(1.06);
+  box-shadow: 0 9px 22px rgba(var(--primary-rgb), 0.22);
+}
+
+.social-icon-btn:active {
+  transform: translateX(-3px) scale(0.95);
+}
+
+/* =========================================================
+   BOTTOM TRUCK / ROAD CONTAINER
+   ========================================================= */
+.truck-track-container {
+  width: 100%;
+  height: 130px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  z-index: 2;
+  background: transparent;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.road-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(180deg, #3a3a3c 0%, #222224 100%);
+  border-top: 2px solid var(--primary);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.road-line::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--bg-white) 0,
+    var(--bg-white) 15px,
+    transparent 15px,
+    transparent 30px
+  );
+  opacity: 0.85;
+}
+
+.road-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--bg-warm) 0%,
+    transparent 8%,
+    transparent 92%,
+    var(--bg-warm) 100%
+  );
+  pointer-events: none;
+}
+
+.moving-truck-wrapper {
+  position: absolute;
+  bottom: 12px;
+  left: -550px;
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+  animation: driveTruck 14s linear infinite;
+  will-change: transform;
+}
+
+.moving-truck-wrapper::before {
+  content: "";
+  position: absolute;
+  right: 10%;
+  bottom: 3px;
+  width: 120px;
+  height: 12px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--primary-rgb), 0.25)
+  );
+  border-radius: 50%;
+  filter: blur(4px);
+}
+
+.moving-truck-img {
+  width: 220px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  animation: truckBounce 0.35s ease-in-out infinite alternate;
+}
+
+.moving-vehicle-img {
+  width: 90px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  animation: vehicleBounce 0.35s ease-in-out infinite alternate;
+}
+
+.zomato-vehicle {
+  animation-delay: 0.1s;
+}
+
+.swiggy-vehicle {
+  animation-delay: 0.2s;
+}
+
+@keyframes driveTruck {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 550px));
+  }
+}
+
+@keyframes truckBounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes vehicleBounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1.5px);
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP (FULL SCREEN STACKING)
+   ========================================================= */
+@media (max-width: 992px) {
+  .hero-section {
+    height: 100vh;
+    height: 100svh;
+    padding-top: 72px;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 24px;
+    flex: 1;
+  }
+
+  .hero-content {
+    order: 1;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .hero-title {
+    align-items: center;
+  }
+
+  .hero-script {
+    font-size: clamp(28px, 4.5vw, 36px);
+  }
+
+  .title-line {
+    margin: 0 auto 14px;
+  }
+
+  .hero-desc {
+    font-family: var(--font-signika);
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 440px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .hero-image-wrapper {
+    order: 2;
+    width: 100%;
+    flex: 1;
+    max-height: 46vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-food-img {
+    width: min(85vw, 420px);
+    max-height: 44vh;
+  }
+
+  .truck-track-container {
+    height: 90px;
+  }
+
+  .moving-truck-wrapper {
+    bottom: 8px;
+    left: -400px;
+    gap: 20px;
+  }
+
+  .moving-truck-img {
+    width: 160px;
+  }
+
+  .moving-vehicle-img {
+    width: 65px;
+  }
+}
+
+/* =========================================================
+   MOBILE VIEW (FULL SCREEN EVEN SPACING)
+   ========================================================= */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 100vh;
+    height: 100svh;
+    padding-top: 68px;
+  }
+
+  .hero-container {
+    padding: 8px 18px;
+    justify-content: space-around;
+  }
+
+  .hero-script {
+    font-size: 26px;
+  }
+
+  .title-welcome {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  .title-brand {
+    font-size: clamp(30px, 6vw, 38px);
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .hero-food-img {
+    width: min(88vw, 360px);
+    max-height: 40vh;
+  }
+
+  .truck-track-container {
+    height: 80px;
+  }
+
+  .moving-truck-wrapper {
+    bottom: 7px;
+    left: -320px;
+    gap: 16px;
+  }
+
+  .moving-truck-img {
+    width: 140px;
+  }
+
+  .moving-vehicle-img {
+    width: 55px;
+  }
+
+  .road-line {
+    height: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 100vh;
+    height: 100svh;
+    padding-top: 64px;
+  }
+
+  .hero-container {
+    padding: 6px 14px;
+  }
+
+  .hero-script {
+    font-size: 24px;
+  }
+
+  .title-welcome {
+    font-size: 15px;
+  }
+
+  .title-brand {
+    font-size: 28px;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .hero-food-img {
+    width: 90vw;
+    max-height: 38vh;
+  }
+}

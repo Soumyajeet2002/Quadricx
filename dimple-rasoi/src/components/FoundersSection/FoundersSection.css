@@ -1,0 +1,375 @@
+/* RESET & SECTION CONTAINER */
+.founders-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding: 60px 0 80px;
+  background-color: var(--bg-warm);
+  background-image: url("../../assets/images/MeetOurFoundersBg.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+.founders-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(253, 251, 249, 0.2);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* HEADER SECTION */
+.founders-header-centered {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 45px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* GRID LAYOUT FIX FOR EQUAL HEIGHT */
+.founders-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px; /* Increased from 1240px to give more total horizontal space */
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 40px; /* Increased gap from 20px to 40px for better breathing room */
+  box-sizing: border-box;
+}
+
+/* ANTD CARD OVERRIDES */
+.founder-card.ant-card {
+  flex: 1 1 0;
+  max-width: 680px; /* Increased max-width from 580px to allow wider cards */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease,
+    opacity 0.8s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================================= */
+/* ENTRANCE SCROLL ANIMATION RULES (LEFT & RIGHT SLIDE)       */
+/* ========================================================= */
+
+.card-slide-left {
+  opacity: 0;
+  transform: translateX(-120px);
+}
+
+.card-slide-right {
+  opacity: 0;
+  transform: translateX(120px);
+}
+
+/* Center Logo Zoom Entrance */
+.founders-center-divider {
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Triggered state when section enters view */
+.founders-section.is-visible .card-slide-left {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founders-section.is-visible .card-slide-right {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founders-section.is-visible .founders-center-divider {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* HOVER EFFECT ON ANIMATED CARD */
+.founder-card.ant-card:hover {
+  transform: translateY(-6px) scale(1.01) !important;
+  box-shadow: 0 20px 40px -15px rgba(200, 22, 29, 0.12);
+}
+
+/* CARD INNER CONTENTS */
+.founder-card .ant-card-body {
+  padding: 32px 36px; /* Slightly increased internal padding */
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-card-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* Slightly increased gap between avatar and bio text */
+  height: 100%;
+  width: 100%;
+}
+
+/* AVATAR WRAPPER */
+.founder-avatar-wrapper {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--bg-warm);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.founder-card.ant-card:hover .founder-avatar-wrapper {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 8px rgba(200, 22, 29, 0.1);
+}
+
+.founder-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* CARD DETAILS */
+.founder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  flex: 1;
+}
+
+.founder-name {
+  font-family: var(--font-signika);
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 !important;
+  letter-spacing: 0.5px;
+}
+
+.founder-role {
+  font-family: var(--font-signika);
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.founder-desc {
+  font-family: var(--font-signika);
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 14px !important;
+  font-weight: 400;
+  text-align: justify;
+}
+
+/* SOCIAL BUTTONS */
+.founder-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: auto !important;
+}
+
+.ant-btn.social-circle-btn {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--dark) !important;
+  color: var(--dark) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease !important;
+}
+
+.ant-btn.social-circle-btn .ant-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+}
+
+.ant-btn.social-circle-btn:hover {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: var(--bg-white) !important;
+  transform: translateY(-2px);
+}
+
+/* CENTER CONNECTOR & LOGO CIRCLE */
+.founders-center-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 12px;
+}
+
+@keyframes spinClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.center-logo-outer-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  animation: spinClockwise 12s linear infinite;
+}
+
+.center-logo-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-shadow: var(--shadow-primary);
+  box-sizing: border-box;
+  animation: spinCounterClockwise 12s linear infinite;
+}
+
+@keyframes spinCounterClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.center-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dot-cardinal {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+.top-dot {
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom-dot {
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-dot {
+  left: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-dot {
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1100px) {
+  .founders-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .founders-center-divider {
+    order: 0;
+    margin: 20px 0;
+  }
+
+  .founder-card.ant-card {
+    width: 100%;
+    max-width: 650px;
+    flex: unset;
+  }
+
+  /* Adjust mobile slide distances */
+  .card-slide-left {
+    transform: translateY(40px);
+  }
+
+  .card-slide-right {
+    transform: translateY(40px);
+  }
+
+  .founders-section.is-visible .card-slide-left,
+  .founders-section.is-visible .card-slide-right {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .founder-card-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .founder-content {
+    align-items: center;
+  }
+}
